@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">WorldResort</string>
+
+    <string name="nav_open_drawer">Open navigation drawer</string>
+    <string name="nav_close_drawer">Close navigation drawer</string>
+    <string name="error_password">Пароль должен иметь не меньше 6 символов</string>
+    <string name="error_email">Почта должна иметь не меньше 8 символов и символ @</string>
+    <string name="error_string">Поле не должно быть пустым</string>
+    <string name="error_auth_login">Такого пользователя нет</string>
+    <string name="error_auth_password">Пароль не правильный</string>
+
+    <string name="Europe">Европа</string>
+    <string name="Asia">Азия</string>
+    <string name="America">Америка</string>
+    <string name="Africa">Африка</string>
+
+    <string name="Login">Логин</string>
+    <string name="Password">Пароль</string>
+    <string name="Name">Имя</string>
+    <string name="Surname">Фамилия</string>
+    <string name="Authorization">Войти</string>
+    <string name="Registration">Зарегестрироваться</string>
+    <string name="SignOut">Выйти</string>
+
+    <string name="Part_World">Часть света: %1$s</string>
+    <string name="Country">Страна: %1$s</string>
+    <string name="City">Город: %1$s</string>
+    <string name="Hotel">Отель: %1$s</string>
+    <string name="Price">Стоимость: %1$d рублей</string>
+    <string name="Booking">Бронировать</string>
+    <string name="Patronymic">Отчество</string>
+    <string name="Age">Возраст</string>
+    <string name="Passport">Паспорт</string>
+    <string name="Number">номер</string>
+    <string name="Series">серия</string>
+    <string name="Save">Сохранить</string>
+    <string name="Delete">Удалить</string>
+    <string name="Personal_Data">Персональные данные</string>
+    <string name="Book">Бронированное</string>
+</resources>

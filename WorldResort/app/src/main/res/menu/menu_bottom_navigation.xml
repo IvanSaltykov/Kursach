@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/itemProfileBottomNavigationMenu"
+        android:title="Профиль"
+        android:icon="@drawable/ic_profile" />
+    <item
+        android:id="@+id/itemResortBottomNavigationMenu"
+        android:title="Курорты"
+        android:checked="true"
+        android:icon="@drawable/ic_hotel"/>
+    <item
+        android:id="@+id/itemFavouritesBottomNavigationMenu"
+        android:title="Избранное"
+        android:icon="@drawable/ic_favourite"/>
+</menu>
