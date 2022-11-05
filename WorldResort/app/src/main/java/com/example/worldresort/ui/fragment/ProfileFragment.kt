@@ -73,6 +73,10 @@ class ProfileFragment : Fragment(), ResortBookRecyclerViewAdapter.onClickListene
         dataBase.getResortsBook(preferences.getUser().accountId).forEach{
             list.add(dataBase.getResortId(it.idSpecial, it.idResort)!!)
         }
+        if (list.isNotEmpty())
+            binding.textViewEmptyProfile.visibility = View.GONE
+        else
+            binding.textViewEmptyProfile.visibility = View.VISIBLE
         adapter.submitList(list, dataBase.getResortsBooking(preferences.getUser().accountId))
     }
     @SuppressLint("ResourceAsColor")

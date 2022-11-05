@@ -8,6 +8,9 @@
     <string name="error_string">Поле не должно быть пустым</string>
     <string name="error_auth_login">Такого пользователя нет</string>
     <string name="error_auth_password">Пароль не правильный</string>
+    <string name="error_passport_number">Номер паспорта состоит из 4 цифр</string>
+    <string name="error_passport_series">Серия паспорта состоит из 6 цифр</string>
+    <string name="error_age">Минимальный возраст: 18 лет</string>
 
     <string name="Europe">Европа</string>
     <string name="Asia">Азия</string>

@@ -62,6 +62,10 @@ class FavouritesFragment : Fragment(), OnItemClickListener {
         dataBase.getResortsFavourites(preferences.getUser().accountId).forEach{
             list.add(dataBase.getResortId(it.idSpecial, it.idResort)!!)
         }
+        if (list.isNotEmpty())
+            binding.textViewEmptyFavourite.visibility = View.GONE
+        else
+            binding.textViewEmptyFavourite.visibility = View.VISIBLE
         adapter.submitList(list)
     }
     override fun onClickItem(resort: Resort) {

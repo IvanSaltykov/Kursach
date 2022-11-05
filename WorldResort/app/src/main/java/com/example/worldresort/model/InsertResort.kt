@@ -6,5 +6,6 @@ data class InsertResort(
     val city: String,
     val hotel: String,
     val image: Int,
-    val price: Int
+    val price: Int,
+    val description: String
 )

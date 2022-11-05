@@ -4,6 +4,15 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/gray">
+    <TextView
+        android:id="@+id/textViewEmptyFavourite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Пустота"
+        android:textSize="40sp"
+        android:layout_gravity="center"
+        android:fontFamily="@font/oktyabrina_script"
+        android:visibility="gone"/>
     <com.google.android.material.button.MaterialButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

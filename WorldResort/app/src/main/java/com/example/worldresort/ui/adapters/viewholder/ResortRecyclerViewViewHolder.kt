@@ -9,8 +9,8 @@ import com.example.worldresort.ui.interfaces.OnItemClickListener
 class ResortRecyclerViewViewHolder(private val binding: ItemResortBinding) : RecyclerView.ViewHolder(binding.root) {
     @SuppressLint("SetTextI18n")
     fun bind(resort: Resort, clickListener: OnItemClickListener) = with(binding) {
-        textViewName.text = resort.hotel
-        textViewDiscration.text = "${resort.world}, ${resort.country}, ${resort.city}"
+        textViewName.text = resort.city
+        textViewDiscration.text = "Отель: ${resort.hotel}"
         imageView.setOnClickListener {
             clickListener.onClickImageItem(resort)
         }

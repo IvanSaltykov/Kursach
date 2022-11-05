@@ -21,7 +21,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_margin="10dp"
-        android:visibility="gone"
+        android:visibility="visible"
         android:id="@+id/profile">
 
         <TextView
@@ -56,7 +56,9 @@
             android:text="@string/Personal_Data"
             app:layout_constraintBottom_toTopOf="@+id/cardView"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewSurnameUserProfile" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewSurnameUserProfile"
+            style="@style/CustomButtonStyle"
+            android:textAllCaps="false"/>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
@@ -79,6 +81,15 @@
                 app:layout_constraintEnd_toEndOf="@+id/cardView"
                 app:layout_constraintStart_toStartOf="@+id/cardView"
                 android:layout_margin="5dp"/>
+            <TextView
+                android:id="@+id/textViewEmptyProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Пустота"
+                android:textSize="40sp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/oktyabrina_script"
+                android:visibility="gone"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewBook"
@@ -95,7 +106,8 @@
             android:text="@string/SignOut"
             android:textAllCaps="false"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            style="@style/CustomButtonStyle"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

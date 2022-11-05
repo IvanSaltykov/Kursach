@@ -37,6 +37,7 @@ class Dialogs(
         val textHotel = dialog.findViewById<TextView>(R.id.textViewHotel)
         val buttonBook = dialog.findViewById<MaterialButton>(R.id.buttonBookDialog)
         val textPrice = dialog.findViewById<TextView>(R.id.textViewPrice)
+        val textDescription = dialog.findViewById<TextView>(R.id.textViewDescription)
         val imageViewResort = dialog.findViewById<ImageView>(R.id.imageViewResort)
         if (!preferences.checkUser())
             buttonBook.setEnabled(false)
@@ -53,6 +54,7 @@ class Dialogs(
         textCity.text = context.getString(R.string.City, resort.city)
         textHotel.text = context.getString(R.string.Hotel, resort.hotel)
         textPrice.text = context.getString(R.string.Price, resort.price)
+        textDescription.text = resort.description
         dialog.create()
         dialog.show()
     }
@@ -106,6 +108,9 @@ class Dialogs(
                 inputLayoutAge.error = validator.checkEditText(editTextAge.text.toString())
                 inputLayoutPassportNumber.error = validator.checkEditText(editTextPassportNumber.text.toString())
                 inputLayoutPassportSeries.error = validator.checkEditText(editTextPassportSeries.text.toString())
+                inputLayoutAge.error = validator.checkAge(editTextAge.text.toString())
+                inputLayoutPassportNumber.error = validator.checkPassportNumber(editTextPassportNumber.text.toString())
+                inputLayoutPassportSeries.error = validator.checkPassportSeries(editTextPassportSeries.text.toString())
                 if (inputLayoutName.error == null &&
                     inputLayoutSurname.error == null &&
                     inputLayoutPatronymic.error == null &&
@@ -135,7 +140,7 @@ class Dialogs(
     fun buildDialogPersonalData(user: User) {
         val dialog = Dialog(context, android.R.style.Theme_Black_NoTitleBar)
         dialog.setContentView(R.layout.dialog_personal_data)
-        dialog.window?.setBackgroundDrawable(ColorDrawable(com.example.worldresort.R.color.black))
+        dialog.window?.setBackgroundDrawable(ColorDrawable(R.color.black))
         dialog.setCancelable(false)
         dialog.apply {
             val textViewSave = findViewById<TextView>(R.id.textViewSaveDialog)
@@ -156,9 +161,9 @@ class Dialogs(
                 inputLayoutName.error = validator.checkEditText(editTextName.text.toString())
                 inputLayoutSurname.error = validator.checkEditText(editTextSurname.text.toString())
                 inputLayoutPatronymic.error = validator.checkEditText(editTextPatronymic.text.toString())
-                inputLayoutAge.error = validator.checkEditText(editTextAge.text.toString())
-                inputLayoutPassportNumber.error = validator.checkEditText(editTextPassportNumber.text.toString())
-                inputLayoutPassportSeries.error = validator.checkEditText(editTextPassportSeries.text.toString())
+                inputLayoutAge.error = validator.checkAge(editTextAge.text.toString())
+                inputLayoutPassportNumber.error = validator.checkPassportNumber(editTextPassportNumber.text.toString())
+                inputLayoutPassportSeries.error = validator.checkPassportSeries(editTextPassportSeries.text.toString())
                 if (inputLayoutName.error == null &&
                     inputLayoutSurname.error == null &&
                     inputLayoutPatronymic.error == null &&

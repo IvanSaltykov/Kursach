@@ -8,5 +8,6 @@ data class Resort(
     val hotel: String,
     val image: Int,
     val idSpecial: Int? = null,
-    val price: Int
+    val price: Int,
+    val description: String
 )

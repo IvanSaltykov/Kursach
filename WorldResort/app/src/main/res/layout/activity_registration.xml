@@ -91,6 +91,7 @@
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:text="@string/Registration"
             android:textAllCaps="false"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            app:cornerRadius="30dp"/>
     </LinearLayout>
 </FrameLayout>

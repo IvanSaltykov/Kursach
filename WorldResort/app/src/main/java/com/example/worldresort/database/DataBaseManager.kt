@@ -19,7 +19,7 @@ class DataBaseManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
 
     }
     override fun onCreate(db: SQLiteDatabase?) {
-        db?.execSQL("CREATE TABLE $TABLE_NAME_RESORTS(id INTEGER PRIMARY KEY AUTOINCREMENT, WORLD TEXT, COUNTRY TEXT, CITY TEXT, HOTEL TEXT, IMAGE INTEGER, PRICE INTEGER)")
+        db?.execSQL("CREATE TABLE $TABLE_NAME_RESORTS(id INTEGER PRIMARY KEY AUTOINCREMENT, WORLD TEXT, COUNTRY TEXT, CITY TEXT, HOTEL TEXT, IMAGE INTEGER, PRICE INTEGER, DESCRIPTION TEXT)")
 
         db?.execSQL("CREATE TABLE $TABLE_NAME_ACCOUNT(id INTEGER PRIMARY KEY, LOGIN TEXT, PASSWORD TEXT)")
         db?.execSQL("CREATE TABLE $TABLE_NAME_USERS(ACCOUNT_ID INTEGER, FIRSTNAME TEXT, LASTNAME TEXT)")
@@ -44,12 +44,13 @@ class DataBaseManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
                 put("HOTEL", resort.hotel)
                 put("IMAGE", resort.image)
                 put("PRICE", resort.price)
+                put("DESCRIPTION", resort.description)
             }
         )
     }
     fun getResortId(id: Int, idResort: Int): Resort? {
         val cursor = readableDatabase.query(TABLE_NAME_RESORTS,
-            arrayOf("id", "WORLD", "COUNTRY", "CITY", "HOTEL", "IMAGE", "PRICE"), "id = ?", arrayOf(idResort.toString()), null, null, null)
+            arrayOf("id", "WORLD", "COUNTRY", "CITY", "HOTEL", "IMAGE", "PRICE", "DESCRIPTION"), "id = ?", arrayOf(idResort.toString()), null, null, null)
         var item: Resort? = null
         with(cursor) {
             if (moveToFirst()) {
@@ -61,7 +62,8 @@ class DataBaseManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
                     hotel = getString(getColumnIndexOrThrow("HOTEL")),
                     image = getInt(getColumnIndexOrThrow("IMAGE")),
                     idSpecial = id,
-                    price = getInt(getColumnIndexOrThrow("PRICE"))
+                    price = getInt(getColumnIndexOrThrow("PRICE")),
+                    description = getString(getColumnIndexOrThrow("DESCRIPTION"))
                 )
             }
             close()
@@ -71,7 +73,7 @@ class DataBaseManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
     }
     fun getResorts(): List<Resort> {
         val cursor = readableDatabase.query(TABLE_NAME_RESORTS,
-            arrayOf("id", "WORLD", "COUNTRY", "CITY", "HOTEL", "IMAGE", "PRICE"), null, null, null, null, null)
+            arrayOf("id", "WORLD", "COUNTRY", "CITY", "HOTEL", "IMAGE", "PRICE", "DESCRIPTION"), null, null, null, null, null)
         val items = mutableListOf<Resort>()
         with(cursor) {
             if (moveToFirst()) {
@@ -84,7 +86,8 @@ class DataBaseManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
                             city = getString(getColumnIndexOrThrow("CITY")),
                             hotel = getString(getColumnIndexOrThrow("HOTEL")),
                             image = getInt(getColumnIndexOrThrow("IMAGE")),
-                            price = getInt(getColumnIndexOrThrow("PRICE"))
+                            price = getInt(getColumnIndexOrThrow("PRICE")),
+                            description = getString(getColumnIndexOrThrow("DESCRIPTION"))
                         )
                     )
                 } while (moveToNext())
@@ -96,7 +99,7 @@ class DataBaseManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
     }
     fun getResortbyCountry(world: String): List<Resort> {
         val cursor = readableDatabase.query(TABLE_NAME_RESORTS,
-            arrayOf("id", "WORLD", "COUNTRY", "CITY", "HOTEL", "IMAGE", "PRICE"), "WORLD = ?", arrayOf(world), null, null, null)
+            arrayOf("id", "WORLD", "COUNTRY", "CITY", "HOTEL", "IMAGE", "PRICE", "DESCRIPTION"), "WORLD = ?", arrayOf(world), null, null, null)
         val items = mutableListOf<Resort>()
         with(cursor) {
             if (moveToFirst()) {
@@ -109,7 +112,8 @@ class DataBaseManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
                             city = getString(getColumnIndexOrThrow("CITY")),
                             hotel = getString(getColumnIndexOrThrow("HOTEL")),
                             image = getInt(getColumnIndexOrThrow("IMAGE")),
-                            price = getInt(getColumnIndexOrThrow("PRICE"))
+                            price = getInt(getColumnIndexOrThrow("PRICE")),
+                            description = getString(getColumnIndexOrThrow("DESCRIPTION"))
                         )
                     )
                 } while (moveToNext())
