@@ -51,52 +51,52 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonPersonalDataProfile"
+            style="@style/CustomButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Personal_Data"
-            app:layout_constraintBottom_toTopOf="@+id/cardView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewSurnameUserProfile"
-            style="@style/CustomButtonStyle"
-            android:textAllCaps="false"/>
+            android:textAllCaps="false"
+            app:layout_constraintStart_toStartOf="@+id/textViewSurnameUserProfile"
+            app:layout_constraintTop_toBottomOf="@+id/textViewSurnameUserProfile" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="50dp"
             app:cardCornerRadius="15dp"
             app:layout_constraintBottom_toTopOf="@+id/buttonSignOutProfile"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewSurnameUserProfile">
+            app:layout_constraintTop_toBottomOf="@+id/buttonPersonalDataProfile">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:text="@string/Book"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/cardView"
                 app:layout_constraintEnd_toEndOf="@+id/cardView"
-                app:layout_constraintStart_toStartOf="@+id/cardView"
-                android:layout_margin="5dp"/>
+                app:layout_constraintStart_toStartOf="@+id/cardView" />
+
             <TextView
                 android:id="@+id/textViewEmptyProfile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Пустота"
-                android:textSize="40sp"
                 android:layout_gravity="center"
                 android:fontFamily="@font/oktyabrina_script"
-                android:visibility="gone"/>
+                android:text="Пустота"
+                android:textSize="40sp"
+                android:visibility="gone" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewBook"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:layout_marginTop="35dp"/>
+                android:layout_marginTop="35dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
         </androidx.cardview.widget.CardView>
 
         <Button
