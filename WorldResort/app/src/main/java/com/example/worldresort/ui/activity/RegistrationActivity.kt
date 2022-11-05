@@ -21,6 +21,9 @@ class RegistrationActivity : AppCompatActivity() {
         binding.buttonRegistration.setOnClickListener {
             registrationAccount()
         }
+        binding.buttonBackRegistr.setOnClickListener {
+            finish()
+        }
     }
     private fun registrationAccount() {
         val login = binding.editTextLoginRegistration.text.toString().trim()

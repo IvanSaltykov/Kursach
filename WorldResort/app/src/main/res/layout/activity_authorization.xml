@@ -48,7 +48,8 @@
                 android:layout_height="match_parent"
                 android:hint="@string/Password"
                 android:id="@+id/editTextPasswordAuth"
-                android:lines="1"/>
+                android:lines="1"
+                android:inputType="textPassword"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.button.MaterialButton
             android:layout_width="match_parent"

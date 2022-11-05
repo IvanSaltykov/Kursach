@@ -19,7 +19,7 @@ class DataBaseManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
 
     }
     override fun onCreate(db: SQLiteDatabase?) {
-        db?.execSQL("CREATE TABLE $TABLE_NAME_RESORTS(id INTEGER PRIMARY KEY AUTOINCREMENT, WORLD TEXT, COUNTRY TEXT, CITY TEXT, HOTEL TEXT, IMAGE INTEGER, PRICE INTEGER, DESCRIPTION TEXT)")
+        db?.execSQL("CREATE TABLE $TABLE_NAME_RESORTS(id INTEGER PRIMARY KEY AUTOINCREMENT, WORLD TEXT, COUNTRY TEXT, CITY TEXT, HOTEL TEXT, IMAGE_HOTEL INTEGER, IMAGE_RESORT INTEGER, PRICE INTEGER, DESCRIPTION TEXT)")
 
         db?.execSQL("CREATE TABLE $TABLE_NAME_ACCOUNT(id INTEGER PRIMARY KEY, LOGIN TEXT, PASSWORD TEXT)")
         db?.execSQL("CREATE TABLE $TABLE_NAME_USERS(ACCOUNT_ID INTEGER, FIRSTNAME TEXT, LASTNAME TEXT)")
@@ -42,7 +42,8 @@ class DataBaseManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
                 put("COUNTRY", resort.country)
                 put("CITY", resort.city)
                 put("HOTEL", resort.hotel)
-                put("IMAGE", resort.image)
+                put("IMAGE_HOTEL", resort.imageHotel)
+                put("IMAGE_RESORT", resort.imageResort)
                 put("PRICE", resort.price)
                 put("DESCRIPTION", resort.description)
             }
@@ -50,7 +51,7 @@ class DataBaseManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
     }
     fun getResortId(id: Int, idResort: Int): Resort? {
         val cursor = readableDatabase.query(TABLE_NAME_RESORTS,
-            arrayOf("id", "WORLD", "COUNTRY", "CITY", "HOTEL", "IMAGE", "PRICE", "DESCRIPTION"), "id = ?", arrayOf(idResort.toString()), null, null, null)
+            arrayOf("id", "WORLD", "COUNTRY", "CITY", "HOTEL", "IMAGE_HOTEL", "IMAGE_RESORT", "PRICE", "DESCRIPTION"), "id = ?", arrayOf(idResort.toString()), null, null, null)
         var item: Resort? = null
         with(cursor) {
             if (moveToFirst()) {
@@ -60,7 +61,8 @@ class DataBaseManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
                     country = getString(getColumnIndexOrThrow("COUNTRY")),
                     city = getString(getColumnIndexOrThrow("CITY")),
                     hotel = getString(getColumnIndexOrThrow("HOTEL")),
-                    image = getInt(getColumnIndexOrThrow("IMAGE")),
+                    imageHotel = getInt(getColumnIndexOrThrow("IMAGE_HOTEL")),
+                    imageResort = getInt(getColumnIndexOrThrow("IMAGE_RESORT")),
                     idSpecial = id,
                     price = getInt(getColumnIndexOrThrow("PRICE")),
                     description = getString(getColumnIndexOrThrow("DESCRIPTION"))
@@ -73,7 +75,7 @@ class DataBaseManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
     }
     fun getResorts(): List<Resort> {
         val cursor = readableDatabase.query(TABLE_NAME_RESORTS,
-            arrayOf("id", "WORLD", "COUNTRY", "CITY", "HOTEL", "IMAGE", "PRICE", "DESCRIPTION"), null, null, null, null, null)
+            arrayOf("id", "WORLD", "COUNTRY", "CITY", "HOTEL", "IMAGE_HOTEL", "IMAGE_RESORT", "PRICE", "DESCRIPTION"), null, null, null, null, null)
         val items = mutableListOf<Resort>()
         with(cursor) {
             if (moveToFirst()) {
@@ -85,7 +87,8 @@ class DataBaseManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
                             country = getString(getColumnIndexOrThrow("COUNTRY")),
                             city = getString(getColumnIndexOrThrow("CITY")),
                             hotel = getString(getColumnIndexOrThrow("HOTEL")),
-                            image = getInt(getColumnIndexOrThrow("IMAGE")),
+                            imageHotel = getInt(getColumnIndexOrThrow("IMAGE_HOTEL")),
+                            imageResort = getInt(getColumnIndexOrThrow("IMAGE_RESORT")),
                             price = getInt(getColumnIndexOrThrow("PRICE")),
                             description = getString(getColumnIndexOrThrow("DESCRIPTION"))
                         )
@@ -99,7 +102,7 @@ class DataBaseManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
     }
     fun getResortbyCountry(world: String): List<Resort> {
         val cursor = readableDatabase.query(TABLE_NAME_RESORTS,
-            arrayOf("id", "WORLD", "COUNTRY", "CITY", "HOTEL", "IMAGE", "PRICE", "DESCRIPTION"), "WORLD = ?", arrayOf(world), null, null, null)
+            arrayOf("id", "WORLD", "COUNTRY", "CITY", "HOTEL", "IMAGE_HOTEL", "IMAGE_RESORT", "PRICE", "DESCRIPTION"), "WORLD = ?", arrayOf(world), null, null, null)
         val items = mutableListOf<Resort>()
         with(cursor) {
             if (moveToFirst()) {
@@ -111,7 +114,8 @@ class DataBaseManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
                             country = getString(getColumnIndexOrThrow("COUNTRY")),
                             city = getString(getColumnIndexOrThrow("CITY")),
                             hotel = getString(getColumnIndexOrThrow("HOTEL")),
-                            image = getInt(getColumnIndexOrThrow("IMAGE")),
+                            imageHotel = getInt(getColumnIndexOrThrow("IMAGE_HOTEL")),
+                            imageResort = getInt(getColumnIndexOrThrow("IMAGE_RESORT")),
                             price = getInt(getColumnIndexOrThrow("PRICE")),
                             description = getString(getColumnIndexOrThrow("DESCRIPTION"))
                         )

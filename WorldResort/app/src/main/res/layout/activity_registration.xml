@@ -82,7 +82,8 @@
                 android:layout_height="match_parent"
                 android:hint="@string/Password"
                 android:id="@+id/editTextPasswordRegistration"
-                android:lines="1"/>
+                android:lines="1"
+                android:inputType="textPassword"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.button.MaterialButton
             android:layout_width="match_parent"
@@ -93,5 +94,14 @@
             android:textAllCaps="false"
             android:textColor="@color/black"
             app:cornerRadius="30dp"/>
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonBackRegistr"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:text="Назад"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:layout_gravity="center_horizontal"/>
     </LinearLayout>
 </FrameLayout>

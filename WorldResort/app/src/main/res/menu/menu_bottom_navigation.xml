@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/itemProfileBottomNavigationMenu"
-        android:title="Профиль"
+        android:title="@string/Profile"
         android:icon="@drawable/ic_profile" />
     <item
         android:id="@+id/itemResortBottomNavigationMenu"
-        android:title="Курорты"
+        android:title="@string/Resort"
         android:checked="true"
         android:icon="@drawable/ic_hotel"/>
     <item
         android:id="@+id/itemFavouritesBottomNavigationMenu"
-        android:title="Избранное"
+        android:title="@string/Favourite"
         android:icon="@drawable/ic_favourite"/>
 </menu>

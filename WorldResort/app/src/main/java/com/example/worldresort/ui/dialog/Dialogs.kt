@@ -39,9 +39,11 @@ class Dialogs(
         val textPrice = dialog.findViewById<TextView>(R.id.textViewPrice)
         val textDescription = dialog.findViewById<TextView>(R.id.textViewDescription)
         val imageViewResort = dialog.findViewById<ImageView>(R.id.imageViewResort)
+        val imageViewHotel = dialog.findViewById<ImageView>(R.id.imageViewHotel)
         if (!preferences.checkUser())
             buttonBook.setEnabled(false)
-        imageViewResort.setImageResource(resort.image)
+        imageViewResort.setImageResource(resort.imageResort)
+        imageViewHotel.setImageResource(resort.imageHotel)
         imageView.setOnClickListener {
             dialog.cancel()
         }
@@ -121,9 +123,9 @@ class Dialogs(
                         resort.id,
                         preferences.getUser().accountId,
                         BookingDataUser(
-                            editTextName.text.toString(),
-                            editTextSurname.text.toString(),
-                            editTextPatronymic.text.toString(),
+                            editTextName.text.toString().trim(),
+                            editTextSurname.text.toString().trim(),
+                            editTextPatronymic.text.toString().trim(),
                             Integer.parseInt(editTextAge.text.toString()),
                             Integer.parseInt(editTextPassportNumber.text.toString()),
                             Integer.parseInt(editTextPassportSeries.text.toString())

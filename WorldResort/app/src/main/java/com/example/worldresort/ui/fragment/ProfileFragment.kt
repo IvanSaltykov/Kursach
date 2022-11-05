@@ -97,7 +97,8 @@ class ProfileFragment : Fragment(), ResortBookRecyclerViewAdapter.onClickListene
         val textPassport = dialog.findViewById<TextView>(R.id.textViewPassportDialogBookProfile)
         val textPrice = dialog.findViewById<TextView>(R.id.textViewPriceDialogBookProfile)
         val buttonBook = dialog.findViewById<MaterialButton>(R.id.buttonBookDialogBookProfile)
-        val imageResort = dialog.findViewById<ImageView>(R.id.imageViewResortDialogBookProfile)
+        val imageViewResort = dialog.findViewById<ImageView>(R.id.imageViewResortDialogBookProfile)
+        val imageViewHotel = dialog.findViewById<ImageView>(R.id.imageViewHotelDialogBookProfile)
         imageView.setOnClickListener {
             dialog.cancel()
         }
@@ -113,7 +114,8 @@ class ProfileFragment : Fragment(), ResortBookRecyclerViewAdapter.onClickListene
                 .create()
             dialogDelete.show()
         }
-        imageResort.setImageResource(resort.image)
+        imageViewResort.setImageResource(resort.imageResort)
+        imageViewHotel.setImageResource(resort.imageHotel)
         textWorld.text = getString(R.string.Part_World, resort.world)
         textCountry.text = getString(R.string.Country, resort.country)
         textCity.text = getString(R.string.City, resort.city)

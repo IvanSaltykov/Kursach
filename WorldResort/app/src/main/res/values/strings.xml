@@ -40,4 +40,8 @@
     <string name="Delete">Удалить</string>
     <string name="Personal_Data">Персональные данные</string>
     <string name="Book">Бронированное</string>
+
+    <string name="Profile">Профиль</string>
+    <string name="Resort">Курорты</string>
+    <string name="Favourite">Избранное</string>
 </resources>

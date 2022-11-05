@@ -28,16 +28,40 @@
             app:layout_constraintBottom_toBottomOf="@+id/toolbar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginEnd="20dp"/>
+            android:layout_marginEnd="20dp"
+            android:foreground="?selectableItemBackground"/>
 
-        <ImageView
-            android:id="@+id/imageViewResortDialogBookProfile"
-            android:layout_width="match_parent"
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView"
+            android:layout_width="wrap_content"
             android:layout_height="200dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageViewResortDialogBookProfile"
+                    android:layout_width="300dp"
+                    android:layout_height="match_parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+                <ImageView
+                    android:id="@+id/imageViewHotelDialogBookProfile"
+                    android:layout_width="300dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/arena_copacabana_hotel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+            </LinearLayout>
+        </HorizontalScrollView>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -47,7 +71,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageViewResortDialogBookProfile">
+            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
 
             <TextView
                 android:id="@+id/textViewWorldDialogBookProfile"
@@ -80,6 +104,7 @@
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 tools:text="@string/Hotel" />
+
             <TextView
                 android:id="@+id/textViewNameDialogBookProfile"
                 android:layout_width="wrap_content"
@@ -87,6 +112,7 @@
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 tools:text="@string/Name" />
+
             <TextView
                 android:id="@+id/textViewSurnameDialogBookProfile"
                 android:layout_width="wrap_content"
@@ -94,6 +120,7 @@
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 tools:text="@string/Surname" />
+
             <TextView
                 android:id="@+id/textViewPatronymicDialogBookProfile"
                 android:layout_width="wrap_content"
@@ -101,6 +128,7 @@
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 tools:text="@string/Patronymic" />
+
             <TextView
                 android:id="@+id/textViewAgeDialogBookProfile"
                 android:layout_width="wrap_content"
@@ -108,6 +136,7 @@
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 tools:text="@string/Age" />
+
             <TextView
                 android:id="@+id/textViewPassportDialogBookProfile"
                 android:layout_width="wrap_content"
@@ -115,23 +144,24 @@
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 tools:text="@string/Passport" />
+
             <TextView
                 android:id="@+id/textViewPriceDialogBookProfile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                tools:text="@string/Price"
-                android:layout_weight="1"/>
+                tools:text="@string/Price" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonBookDialogBookProfile"
+                style="@style/CustomButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="40dp"
                 android:text="@string/Delete"
-                android:textAllCaps="false"
-                style="@style/CustomButtonStyle"
-                android:layout_marginHorizontal="40dp"/>
+                android:textAllCaps="false" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
